@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Error 404 :(</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 h1{
 color: #FFFFFF;
@@ -12,31 +12,73 @@ font-family:Lucida Console;
 
 .blinking{
     animation:blinkingText 1s infinite;
+    
 }
 
 @keyframes blinkingText{
-    0%{     color: #f70d1a;    }
-    49%{    color: #f70d1a; }
-    60%{    color: #f70d1a; }
+    0%{     color: #00FF00;  }
+    49%{    color: #00FF00; }
+    60%{    color: #00FF00; }
     99%{    color:transparent;  }
-    100%{   color: #f70d1a;    }
+    100%{   color: #00FF00;    }
 }
 a{color:white;
 }
 mark{
  height: 10.15em; padding: 0.2em 0.1em;}
+audio
+{
+display:none;
+}
+
+input{
+  background-color: #FFFFFF;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family:"Lucida Console";
+}
+
 </style>
 </head>
 
 <body style="background-color:black">
-<section><br><br><br><br><br><br><hr><center><span style='font-size:100px;'>&#128577;</span>
+<article> <center>
+<br><br><br><br><br><hr><center><span style='font-size:100px;'>&#128577;</span>
 	
-   <center><br>
-  <h1> Oops! The Page you are looking for cannot be found. <br><br><span class="blinking">[Error 404 : Not Found]</span></h1>
+  <br>
+  <h1> Oops! The Page you are looking for cannot be found. <br><br><span class="blinking" id="y" >Loading <i class="fa fa-spinner fa-spin"></i></span></h1>
         <h1><mark><b>Site Under Construction &#128296;</b></mark><br>
-    <u><a href="index.html"><br>Back</a><br><br></u></h1>	
+    <ul class="actions">
+<input type="submit" value="Try again" onclick="enableLoop()"/>&nbsp;
+<input type="submit" value="Back"  onClick="parent.location='index.html'" />
+</ul>
+<audio id="myAudio" controls autoplay="true"
+  source src="audio.mp3" type="audio/mp3">
+</audio><br>
 <hr>
-</section>
+</article>
+<script>
+ 
+var x = document.getElementById("myAudio");
+
+function enableLoop() { 
+  x.loop = true;
+  x.load();
+var dx="[Error 404 : Not Found]";
+var result=dx.fontcolor("red");	
+
+document.getElementById("y").innerHTML= result;
+	
+}
+
+</script> 
 
 </body> 
 </html>
