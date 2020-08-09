@@ -3,11 +3,12 @@
 <html>
 <head>
 	<title>Error 404 :(</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 h1{
 color: #FFFFFF;
-font-family:Lucida Console;
+font-family:Trebuchet MS;
 }
 
 .blinking{
@@ -31,49 +32,102 @@ audio
 display:none;
 }
 
-input{
-  background-color: #FFFFFF;
-  border: none;
-  color: black;
+button{
+  background-color: #555555;
+  border: 4px solid #FFFFFF;
+  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 19px;
   margin: 4px 2px;
   cursor: pointer;
-  font-family:"Lucida Console";
+  font-family:"Trebuchet MS";
+  transition-duration: 0.4s;
 }
 
+.but{
+position:fixed;
+left:518px;
+font-family:"Trebuchet MS";
+
+}
+.btn{
+position:fixed;
+left:714px;
+font-family: "Trebuchet MS";
+}
+
+.but:hover{
+  background-color: #FFFFFF;
+  color: black ;
+  border: 4px solid #555555;
+  font-family:"Trebuchet MS";
+  
+}
+
+.btn:hover {
+   background-color: #FFFFFF;
+   color: black;
+   border: 4px solid #555555;
+   font-family:"Trebuchet MS";
+
+}
+
+.container{
+    margin:50px;
+    color: white;
+    background-color: #FF0000;
+}
+
+.box{
+    background-color:black;
+    color : white;
+    border-top: 5px white solid;
+    border-left: 5px white solid;
+    border-right: 5px white solid;
+    border-bottom: 5px white solid;
+    border-radius: 25px;
+}
 </style>
+<link rel="icon" href="images/e.png" type="image x-icon">
 </head>
 
 <body style="background-color:black">
 <article> <center>
-<br><br><br><br><br><hr><center><span style='font-size:100px;'>&#128577;</span>
+<br><br><br><br><br>
+<div class="container">
+<div class="box">
+<center><span style='font-size:100px;'>&#128577;</span>
 	
   <br>
   <h1> Oops! The Page you are looking for cannot be found. <br><br><span class="blinking" id="y" >Loading <i class="fa fa-spinner fa-spin"></i></span></h1>
         <h1><mark><b>Site Under Construction &#128296;</b></mark><br>
     <ul class="actions">
-<input type="submit" value="Try again" onclick="enableLoop()"/>&nbsp;
-<input type="submit" value="Back"  onClick="parent.location='index.html'" />
+
+<button type="button" onclick="enableLoop()" class="but">Try again <i class="fa fa-repeat"></i></button>&nbsp;
+<button type="button" onClick="parent.location='index.html'" class="btn">Back <i class='fa fa-arrow-left'></i></button>
 </ul>
 <audio id="myAudio" controls autoplay="true"
   source src="audio.mp3" type="audio/mp3">
 </audio><br>
-<hr>
+</div>
+</div>
 </article>
 <script>
  
 var x = document.getElementById("myAudio");
-
+var blink_speed = 400;
 function enableLoop() { 
   x.loop = true;
   x.load();
-var dx="[Error 404 : Not Found]";
-var result=dx.fontcolor("red");	
-
+var dx="[Error 404 : Not Found &#9888;]	";	
+var t = setInterval(function () {
+    var result = document.getElementById("y");
+    result.style.visibility = (result.style.visibility == 'hidden' ? '' : 'hidden');
+}, blink_speed);
+var result=dx.fontcolor("red");
 document.getElementById("y").innerHTML= result;
 	
 }
