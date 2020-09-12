@@ -51,7 +51,10 @@ section, summary, time, mark, audio, video {
 }
 
 
-
+@font-face {
+  font-family: 'Trebuchet MS';
+  src: url("fonts/Trebuchet_MS.ttf");
+}
 
 
 
